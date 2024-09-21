@@ -1,6 +1,6 @@
 //! This module provides structures and functions for representation of HTML elements.
 const std = @import("std");
-const Tag = @import("ssg-zig").html.Tag;
+const Tag = @import("html.zig").Tag;
 
 /// This function returns proper Element union.
 pub fn createElement(comptime tagName: Tag) Element {

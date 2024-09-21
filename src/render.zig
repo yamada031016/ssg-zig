@@ -1,7 +1,7 @@
 const std = @import("std");
 const z = @import("ssg-zig");
-const Element = z.element.Element;
-const n = z.node;
+const Element = @import("element.zig").Element;
+const n = @import("node.zig");
 const Node = n.Node;
 
 const RenderError = error{

@@ -1,9 +1,8 @@
 //! This module provides structures and functions for managing Element structures.
 const std = @import("std");
-const z = @import("ssg-zig");
-const elem = z.element;
+const elem = @import("element.zig");
 const Element = elem.Element;
-const Tag = z.html.Tag;
+const Tag = @import("html.zig").Tag;
 
 /// This function returns Node structures which contains proper Element union.
 pub fn createNode(comptime tagName: Tag) Node {
