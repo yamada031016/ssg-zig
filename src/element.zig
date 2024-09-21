@@ -1,37 +1,26 @@
 //! This module provides structures and functions for representation of HTML elements.
 const std = @import("std");
-const Tag = @import("html.zig").Tag;
-
+const Tag = @import("ssg-zig").html.Tag;
 
 /// This function returns proper Element union.
 pub fn createElement(comptime tagName: Tag) Element {
-     switch (tagName) {
+    switch (tagName) {
         .img => {
-            return Element{
-                .image = Image{}
-            };
+            return Element{ .image = Image{} };
         },
         .a => {
-            return Element{
-                .hyperlink = HyperLink{}
-            };
+            return Element{ .hyperlink = HyperLink{} };
         },
         .link => {
-            return Element{
-                .link = Link{}
-            };
+            return Element{ .link = Link{} };
         },
         .meta => {
-            return Element{
-                .meta = Meta{}
-            };
+            return Element{ .meta = Meta{} };
         },
         else => {
-            return Element{
-                .plane = PlaneElement{
-                    .tag = tagName,
-                }
-            };
+            return Element{ .plane = PlaneElement{
+                .tag = tagName,
+            } };
         },
     }
 }
@@ -66,7 +55,7 @@ pub const PlaneElement = struct {
 /// This structure represents image tag without any auto-optimization.
 pub const Image = struct {
     const Self = @This();
-    pub const attributes = [_][]const u8{"src", "alt", "width", "height"};
+    pub const attributes = [_][]const u8{ "src", "alt", "width", "height" };
 
     src: ?[]u8 = null,
     alt: ?[]u8 = null,
@@ -106,16 +95,16 @@ pub const Meta = struct {
         theme_color,
 
         pub fn asText(meta: *const MetaType) []const u8 {
-            return switch(meta.*) {
-                    .charset => "charset",
-                    .description => "description",
-                    .viewport => "viewport",
-                    .keywords => "keywords",
-                    .property => "property",
-                    .twitter_card => "twitter_card",
-                    .twitter_site => "twitter_site",
-                    .twitter_creator => "twitter_creator",
-                    .theme_color => "theme_color",
+            return switch (meta.*) {
+                .charset => "charset",
+                .description => "description",
+                .viewport => "viewport",
+                .keywords => "keywords",
+                .property => "property",
+                .twitter_card => "twitter_card",
+                .twitter_site => "twitter_site",
+                .twitter_creator => "twitter_creator",
+                .theme_color => "theme_color",
             };
         }
     };

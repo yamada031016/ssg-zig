@@ -1,5 +1,5 @@
 const std = @import("std");
-const z = @import("zframe");
+const z = @import("ssg-zig");
 const Element = z.element.Element;
 const n = z.node;
 const Node = n.Node;
