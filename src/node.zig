@@ -75,6 +75,9 @@ pub const Node = struct {
                             else => {},
                         }
                     }
+                } else if (metaType == .Array or metaType == .Pointer) {
+                    // 単なる文字列と仮定
+                    plane.*.template = @constCast(args);
                 }
             },
 

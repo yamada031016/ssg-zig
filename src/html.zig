@@ -1,6 +1,7 @@
 //! This module provides enum for definitions of HTML tags.
 const std = @import("std");
 
+// zig fmt: off
 pub const Tag = enum {
     /// empty tag is unique in Zin.
     /// empty tag is omitted when rendering its children.
@@ -43,3 +44,4 @@ pub const Tag = enum {
         };
     }
 };
+// zig fmt: on
